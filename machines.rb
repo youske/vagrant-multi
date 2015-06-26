@@ -14,6 +14,7 @@ $env_config = {
 
   :roles => [
     {
+      :active => true,
       :name => "manage",
       :memory => 256,
       :bind_ports => [],
@@ -22,6 +23,7 @@ $env_config = {
       :bootstrap_path => 'bootstrap_manage.sh'
     },
     {
+      :active => false,
       :name => "frontend",
       :memory => 256,
       :bind_ports => [ [80,80],[8080,8080] ],
@@ -30,6 +32,7 @@ $env_config = {
       :bootstrap_path => 'bootstrap.sh'
     },
     {
+      :active => false,
       :name => "backend",
       :memory => 256,
       :bind_ports => [ [33306,33306] ],
@@ -38,6 +41,7 @@ $env_config = {
       :bootstrap_path => 'bootstrap.sh'
     },
     {
+      :active => false,
       :name => "cache",
       :memory => 256,
       :bind_ports => [ [11211,11211] ],
@@ -46,6 +50,7 @@ $env_config = {
       :bootstrap_path => 'bootstrap.sh'
     },
     {
+      :active => false,
       :name => "log",
       :memory => 256,
       :bind_ports => [ [80,80],[8080,8080] ],

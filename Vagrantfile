@@ -15,6 +15,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box_check_update = $env_config[:general][:box_update]
   count=0
   $env_config[:roles].each do |it|
+    if !it[:active] then
+      next
+    end
     config.vm.define it[:name] do |node|
       node.vm.hostname = it[:name]
       ipnum = IPAddr.new( $env_config[:general][:private_ipaddr] ).to_i + count
