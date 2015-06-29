@@ -31,6 +31,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       end
       node.vm.provider "virtualbox" do |vb|
         vb.gui=false
+        vb.cpus=it[:cpus]
         vb.memory=it[:memory]
       end
       boot = File.join( File.dirname(__FILE__), it[:bootstrap_path] )
