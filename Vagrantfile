@@ -3,14 +3,14 @@
 require 'fileutils'
 require 'ipaddr'
 
-VAGRANTFILE_API_VERSION = "2"
+$VAGRANTFILE_API_VERSION = "2"
 
-MACHINES = File.join(File.dirname(__FILE__), "machines.rb")
-if File.exist?(MACHINES)
-  require MACHINES
+$MACHINES = File.join(File.dirname(__FILE__), "machines.rb")
+if File.exist?($MACHINES)
+  require $MACHINES
 end
 
-Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+Vagrant.configure($VAGRANTFILE_API_VERSION) do |config|
   config.vm.box = $env_config[:general][:box]
   config.vm.box_check_update = $env_config[:general][:box_update]
   count=0
