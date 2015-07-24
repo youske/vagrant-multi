@@ -1,4 +1,4 @@
-#
+﻿#
 # 仮想サーバ構成
 #
 
@@ -22,10 +22,10 @@ $env_config = {
       :name => "manage",
       :cpus => 1,
       :memory => 256,
-      :bind_ports => [],
+      :bind_ports => [[3000,3000],[8888,8888]],
       :mount => [ ["..","/app"] ],
       :gui => false,
-      :bootstrap_path => 'bootstrap_manage.sh'
+      :bootstrap_path => 'bootstrap.sh'
     },
     {
       :active => false,
@@ -62,7 +62,7 @@ $env_config = {
       :name => "log",
       :cpus => 1,
       :memory => 256,
-      :bind_ports => [ [80,80],[8080,8080] ],
+      :bind_ports => [],
       :mount => [],
       :gui => false,
       :bootstrap_path => 'bootstrap.sh'

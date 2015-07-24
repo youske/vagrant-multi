@@ -1,5 +1,6 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
+
 require 'fileutils'
 require 'ipaddr'
 
@@ -11,6 +12,7 @@ if File.exist?($MACHINES)
 end
 
 Vagrant.configure($VAGRANTFILE_API_VERSION) do |config|
+  Encoding.default_external = 'UTF-8'
   config.vm.box = $env_config[:general][:box]
   config.vm.box_check_update = $env_config[:general][:box_update]
   count=0
@@ -30,7 +32,7 @@ Vagrant.configure($VAGRANTFILE_API_VERSION) do |config|
         node.vm.network "forwarded_port", guest: ports[0], host: ports[1]
       end
       node.vm.provider "virtualbox" do |vb|
-        vb.gui=false
+        vb.gui=it[:gui]
         vb.cpus=it[:cpus]
         vb.memory=it[:memory]
       end
